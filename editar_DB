@@ -1,0 +1,18 @@
+use senai_compras;
+
+INSERT INTO estoque (id_produto, produto, preco, quantidade, unidade) VALUES (1, 'leite integral', 5.4, 10, 'litro');
+INSERT INTO estoque (id_produto, produto, preco, quantidade, unidade) VALUES (2, 'maçã', 8.2, 8, 'Unidade');
+INSERT INTO estoque (id_produto, produto, preco, quantidade, unidade) VALUES (3, 'açúcar refinado', 15.5, 5, 'sacos com 5kg');
+
+INSERT INTO vendas (id_venda, tipo_de_venda, taxa, data_da_venda, estoque_id_produto) VALUES (1, 'cartão de débito', 1.5, '2023-01-10', 1);
+INSERT INTO vendas (id_venda, tipo_de_venda, taxa, data_da_venda, estoque_id_produto) VALUES (2, 'cartão de crédito', 2.5, '2023-01-10', 3);
+INSERT INTO vendas (id_venda, tipo_de_venda, taxa, data_da_venda, estoque_id_produto) VALUES (3, 'dinheiro', 1.8, '2023-01-11', 1);
+
+UPDATE estoque SET produto = 'Leite Desnatado' WHERE id_produto = 1;
+UPDATE vendas SET taxa = 3.1 WHERE id_venda = 1;
+
+SELECT * FROM estoque WHERE quantidade < 9;
+SELECT * FROM vendas WHERE taxa < 3;
+
+DELETE FROM vendas WHERE estoque_id_produto = 3;
+DELETE FROM estoque WHERE id_produto = 3;
